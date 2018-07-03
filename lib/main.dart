@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:parse_flutter_sdk/parse.dart';
 import 'package:parse_flutter_sdk/parse_user.dart';
 import 'package:parse_flutter_sdk/validity_tool.dart';
-import 'constants.dart';
+import 'constants.dart' as constants;
 
 void main() => runApp(new MyApp());
 
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   void initParse() {
-    Parse.create(serverUrl, appId);
+    Parse.create(constants.serverUrl, constants.appId);
 
     var username="王晶2";
     var password="王晶账户密码";
