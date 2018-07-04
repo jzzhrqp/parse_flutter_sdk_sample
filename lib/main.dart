@@ -115,10 +115,11 @@ class _MyHomePageState extends State<MyHomePage> {
   void initParse() {
     Parse.create(constants.serverUrl, constants.appId);
 
-    var username="王晶2";
+    var username="王晶晶";
     var password="王晶账户密码";
-   testSignUp(username, password,"361652557@qq.com");
+   testSignUp(username, password,"itlavn@163.com");
 //    testLogin(username, password);
+    requestPasswordreset();
   }
 
   ///测试登录
@@ -138,6 +139,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ..put("username", username)
       ..put("password", passwrod)
       ..put("email", email);
+    ;
     newUser.signUp()
         .then((map){
       print("注册成功${map.toString()}");
@@ -146,4 +148,13 @@ class _MyHomePageState extends State<MyHomePage> {
       print("使用注册错误：$error");
     });
   }
+
+  ///测试请求重置密码
+ void requestPasswordreset(){
+    ParseUser.requestPasswordReset("itlavn@163.com").then((map){
+      print("请求重置密码成功");
+    }).catchError((error){
+      print("请求重置密码失败${error.toString()}");
+    });
+ }
 }
